@@ -17,7 +17,13 @@
   email --> which is a string
   getUsername --> which is a function that returns the current object's username property. *Don't use 'user' instead use the 'this' keyword*
 */
-  
+  const user = {
+    username: '',
+    email: '',
+    getUsername(){
+      return this.username;
+    }
+  }
 
 //Code Here
 
@@ -42,7 +48,7 @@ class Animal {
 }
 
 //Code Here
-
+let animal1 = new Animal('buddy', 'weasle', 'cheerios');
 
 
 ////////// PROBLEM 3 //////////
@@ -62,7 +68,7 @@ let who = {
 }
 
 //Code Here
-
+let whoSaysHi = sayHi.bind(who)
 
 
 ////////// PROBLEM 4 //////////
@@ -77,8 +83,9 @@ function whatIsThis() {
 
 //Code Here
 
-// uncomment the line below and tell us what the context of "this" is for whatIsThis()
-//let context1 = ???
+//uncomment the line below and tell us what the context of "this" is for
+whatIsThis()
+let context1 = window;
 
 let product = {
   name: 'snake plant',
@@ -88,8 +95,9 @@ let product = {
 
 let func = whatIsThis.bind(product)
 
-// uncomment the line below and tell us what the context of "this" is when we invoke func
-//let context2 = ???
+//uncomment the line below and tell us what the context of "this" is when we 
+func()
+let context2 = product
 
 let vacation = {
   location: 'Hawaii',
@@ -99,13 +107,14 @@ let vacation = {
   whatIsThis: whatIsThis
 }
 
-// uncomment the line below and tell us what the context of "this" is when we invoke vacation.whatIsThis
-//let context3 = ???
+// uncomment the line below and tell us what the context of "this" is when we invoke 
+vacation.whatIsThis
+let context3 = vacation
 
 
 class Family {
   constructor(numParents, numKids, numPets) {
-    this.numParents = numPets;
+    this.numParents = numParents;
     this.numKids = numKids;
     this.numPets = numPets;
   }
@@ -118,4 +127,4 @@ class Family {
 let family1 = new Family(2, 4, 1)
 
 // uncomment the line below and tell us what the context of "this" is for the instance of Family created above.
-//let context4 = ???
+let context4 = family1
